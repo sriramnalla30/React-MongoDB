@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormVerification</title>
+    <style>
+        body {
+            align-items: center;
+            justify-content: center;
+            background-image: url('images/customer_enquirs_about_car.jpg');
+            background-size: cover; 
+            background-position-y:20% ; 
+            background-repeat: no-repeat;
+        }
+        .formbox { 
+            margin-left: 37%;
+            margin-top: 4%;
+            align-items: center;
+            border: 2px solid ;
+            border-radius: 25px;
+            padding: 40px;
+            position: absolute;  
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .formsubmit:hover {
+            font-size: large;
+            color: black;
+        }
+        #color {
+            border: 2px solid #ccc; 
+            border-radius: 3px;
+        }
+        label {
+            font-weight: bold; 
+         }
+    </style>
+     
+</head>
+<body>
+    
+    <div class="formbox">
+        <form method="post" onSubmit="return formvalidate()" action="http://localhost:5000/profile/submitProfile">
+            <h1><legend>Profile Details</legend></h1><br>
+            Name: <input type="text" id="Name" name="Name" required><br><br>
+            PhoneNum: <input type="text" id="PhoneNum" name="PhoneNum" required><br><br>
+            Email Id: <input type="email" id="Email" name="Email" required><br><br>
+            Password: <input type="text" id="Password" name="Password" required><br><br>
+            Gender: <input type="text" id="Gender" name="Gender" required><br><br>
+            DOB: <input type="date" id="DOB" name="DOB" placeholder="dd-mm-yyy" required><br><br>
+            Driving License Number: <input type="text" id="DrivingLicenseNumber" name="DrivingLicenseNumber" required><br><br>            
+            <br><br>
+        <input type="submit" value="Submit" class="formsubmit">
+        </form>
+    </div>
+    <script>
+        function formvalidate() {
+            let peru = /^[A-Za-z]+$/;
+            let Name = document.getElementById("Name");
+            if (!Name.value.match(peru)) {
+                alert("Name should consist of alphabets only");
+                return false;
+            }
+
+            let num = /^[0-9]{10}$/; // /^[0-9]{10,}+$/;
+            let phone = document.getElementById("number");
+            if (!phone.value.match(num)) {
+                alert("Phone number should consist of numbers only of 10 digits");
+                return false;
+            }
+
+            let pass = document.getElementById("Password");
+            let check_pass = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            if (!pass.value.match(check_pass)) {
+                alert("A password must contain at least 2 digits, at least one alphabet character, at least one symbol, at least one lowercase letter, at least one uppercase letter, and be at least 8 characters long.");
+                return false;
+            }
+
+            let entered_dob = document.getElementById("dob").value;
+            let present_new_date = new Date(entered_dob);
+            let present_date = new Date();
+            let age = present_date.getFullYear() - present_new_date.getFullYear();
+            let month_diff = present_date.getMonth() - present_new_date.getMonth();
+            if (month_diff < 0 || (month_diff === 0 && present_date.getDate() < present_new_date.getDate())) {
+                age--;  
+            }
+            if (age < 18) {
+                alert("Age must be 18 or older.");
+                return false; 
+            }
+            let dlRegex = /^[A-Z]{2}\d{13}$/;
+            let givenDL = document.getElementById("licenseNumber");
+            if (!givenDL.value.match(dlRegex)) {
+               alert("Please enter a valid driving license number.");
+              return false; 
+}
+
+            }
+    </script>
+</body>
+</html>

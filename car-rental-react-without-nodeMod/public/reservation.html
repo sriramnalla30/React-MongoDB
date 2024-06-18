@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Rental</title>
+<style>
+    body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("images/car_map.jpg"); 
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 1em;
+  text-decoration: none;
+}
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh; 
+}
+
+.search-form {
+  background-color: white;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.search-form label, .search-form input, .search-form select {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 20%;
+}
+button:hover{
+  box-shadow: inset 100px 0 0 0 darkgreen ;
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>India DriveHub</h1>
+    <nav>
+      <a href="#">Deals</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="search-section">
+    <div class="search-form">
+      <h2>Book Your Ride</h2>
+      <form action="./available_cars.html">
+        <label for="from">From:</label>
+        <input type="date" id="from">
+
+        <label for="to">To:</label>
+        <input type="date" id="to">
+
+        <label for="city">City:</label>
+        <input type="text" id="city">
+
+        <label for="state">State:</label>
+        <select id="state">
+            <option></option>
+            <option>AndhraPradesh</option>
+            <option>Telangana</option>
+            <option>Karnataka</option>
+            <option>Tamilnadu</option>
+            <option>Kerala</option>
+        </select>
+        
+        <button type="submit" onclick="return validate()">Search Cars</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 Car Rental</p>
+  </footer>
+</body>
+</html>

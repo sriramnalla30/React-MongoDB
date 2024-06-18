@@ -1,0 +1,15 @@
+.input{
+    padding-bottom:15px ;
+
+}
+.Main{
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    width:30%;
+    border: 2px solid black ;
+    margin-top:2% ;
+    margin-left: 35% ;
+    padding-top:50px ;
+    padding-bottom:50px ;
+
+}
