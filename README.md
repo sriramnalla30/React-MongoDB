@@ -1,4 +1,7 @@
 # React-MongoDB
+
+NOTE :- if you want to run this app you need to download the node modules using npm install in cmd line inside the app
+
 India DriveHub
 India DriveHub is a car rental application built using React for the frontend and Express with MongoDB for the backend. This project aims to provide a seamless experience for users to book car rentals, manage customer information, and explore deals.
 
